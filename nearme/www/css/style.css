@@ -1,0 +1,11 @@
+/* Empty. Add your own CSS if you like */
+.blue-background{
+    background-color : red;
+}
+.wide-as-needed {
+  overflow: scroll;
+  white-space: nowrap;
+}
+.scroll {
+  min-width: 100%;
+}

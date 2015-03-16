@@ -1,0 +1,44 @@
+<!--
+This template loads for the 'tab.friend-detail' state (app.js)
+'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+The FriendsCtrl pulls data from the Friends service (service.js)
+The Friends service returns an array of friend data
+-->
+<ion-view view-title="Place Details"">
+    <ion-content class="padding">
+
+        <div class="card">
+
+            <div class="item item-avatar">
+                <img src="{{place.result.icon}}">
+                <h2>{{place.result.name}}</h2>
+                <div class="icon icon-item-left">
+                    <i class="icon ion-star"> {{place.result.rating}}</i></div>
+                </div>
+
+                <div class="item item-body">
+                    <ion-scroll direction="x" class="wide-as-needed">
+                        <img  ng-repeat="image in place.result.photos" ng-src="{{urlForImage(image.photo_reference)}}" height="200px"/>
+                    </ion-scroll>
+
+                    <h4>Address : {{place.result.formatted_address}}</h4>
+                    <h4>Phone : {{place.result.formatted_phone_number}}</h4>
+
+                </div>
+
+            </div>
+
+            <button class="button button-full button-calm">
+            <i class="icon ion-chatboxes"> Reviews </i> </button>
+            <div ng-repeat="review in place.result.reviews"
+            class="item ">
+            <h5>{{review.author_name}}</h5>
+            <div class="item item-text-wrap">
+                <p>    {{review.text}}</p>
+            </div>
+
+
+        </div>
+
+    </ion-content>
+</ion-view>
